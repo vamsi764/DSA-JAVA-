@@ -1,0 +1,22 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void rotateByOne(int[] arr)
+    {
+        if(arr.length==0) return;
+        int one=arr[0];
+        for(int i=1;i<arr.length;i++)
+        {
+            arr[i-1]=arr[i];
+        }
+        arr[arr.length-1]=one;
+        
+    }
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int[] arr={1,2,3,3,4,5};
+        rotateByOne(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
