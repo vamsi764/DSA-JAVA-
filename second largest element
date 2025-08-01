@@ -1,0 +1,31 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int[] arr={1,2,3,33,4,0};
+        int max=Integer.MIN_VALUE;
+        int sec_max=Integer.MIN_VALUE;
+        for(int num:arr)
+        {
+            if(num>max)
+            {
+                sec_max=max;
+                max=num;
+            }
+            else if(num>sec_max && max>num)
+            {
+                sec_max=num;
+            }
+        }
+        if(sec_max==Integer.MIN_VALUE)
+        {
+            System.out.println("No second largest element");
+        }
+        else
+        {
+        System.out.println(sec_max);
+        }
+    }
+}
