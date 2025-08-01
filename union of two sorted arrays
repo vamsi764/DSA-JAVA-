@@ -1,0 +1,16 @@
+class Solution {
+    public int[] unionArray(int[] nums1, int[] nums2) {
+        TreeSet<Integer> result = new TreeSet<>();
+for (int num : nums1) result.add(num);
+for (int num : nums2) result.add(num);
+
+
+        int[] arr=new int[result.size()];
+        int index=0;
+        for(int num:result)
+        {
+            arr[index++]=num;
+        }
+        return arr;
+    }
+}
