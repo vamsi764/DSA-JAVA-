@@ -1,0 +1,34 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int[] arr={1,2,0,1,1,1};
+        int candiate=0;
+        int count=0;
+        for(int num:arr)
+        {
+            if(candiate==num) count++;
+            else if(count==0)
+            {
+                candiate=num;
+                count=1;
+            }
+            else
+            {
+                count--;
+            }
+        }
+        count=0;
+        for(int num:arr)
+        {
+            if(candiate==num) count++;
+        }
+        
+        if(count>arr.length/2)
+        {
+            System.out.println(candiate);
+        }
+    }
+}
