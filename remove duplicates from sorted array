@@ -1,0 +1,23 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static int removeDuplicates(int[] arr)
+    {
+        int left=1;
+        for(int right=1;right<arr.length;right++)
+        {
+            if(arr[right-1]!=arr[right])
+            {
+                arr[left++]=arr[right];
+            }
+        }
+        return left;
+    }
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int[] arr={1,2,3,3,4,5};
+        System.out.println(removeDuplicates(arr));
+        System.out.println(Arrays.toString(arr));
+    }
+}
