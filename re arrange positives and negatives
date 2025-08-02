@@ -1,0 +1,57 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int[] arr={1,2,3,-1,-2,3};
+        ArrayList<Integer> pos=new ArrayList<>();
+        ArrayList<Integer> neg=new ArrayList<>();
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]<0)
+            {
+                neg.add(arr[i]);
+            }
+            else
+            {
+                pos.add(arr[i]);
+            }
+        }
+        if(pos.size()==neg.size())
+        {
+        for(int i=0;i<arr.length/2;i++)
+        {
+            arr[2*i]=pos.get(i);
+            arr[(2*i)+1]=neg.get(i);
+        }
+        }
+        else if(pos.size()>neg.size())
+        {
+            for(int i=0;i<neg.size();i++)
+            {
+                arr[2*i]=pos.get(i);
+                arr[(2*i)+1]=neg.get(i);
+            }
+            int index=2*neg.size();
+            for(int i=neg.size()+1;i<pos.size();i++)
+            {
+                arr[index++]=pos.get(i);
+            }
+        }
+        else
+        {
+            for(int i=0;i<pos.size();i++)
+            {
+                arr[2*i]=pos.get(i);
+                arr[(2*i)+1]=neg.get(i);
+            }
+            int index=pos.size()*2;
+            for(int i=pos.size()+1;i<neg.size();i++)
+            {
+                arr[index++]=neg.get(i);
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
