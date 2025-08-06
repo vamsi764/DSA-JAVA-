@@ -1,0 +1,24 @@
+class Solution {
+    public ListNode deleteMiddle(ListNode head) {
+        // Edge case: list has only one node
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        ListNode pre = null;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            pre = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Delete the middle node
+        pre.next = slow.next;
+        slow.next = null;
+
+        return head;
+    }
+}
