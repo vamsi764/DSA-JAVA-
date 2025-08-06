@@ -1,0 +1,67 @@
+/*Definition of singly linked list:
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode() {
+        val = 0;
+        next = null;
+    }
+
+    ListNode(int data1) {
+        val = data1;
+        next = null;
+    }
+
+    ListNode(int data1, ListNode next1) {
+        val = data1;
+        next = next1;
+    }
+}
+ */
+
+class Solution {
+    public ListNode sortList(ListNode head) {
+        if(head==null||head.next==null) return head;
+        ListNode middle=findMiddle(head);
+        
+        // ListNode lefthead=head;
+        ListNode righthead=middle.next;
+        middle.next=null;
+        ListNode sortedleft=sortList(head);
+        ListNode sortedright=sortList(righthead);
+        return merge(sortedleft,sortedright);
+    }
+    public ListNode findMiddle(ListNode head)
+    {
+        ListNode slow=head;
+        ListNode fast=head.next;
+        while(fast!=null&&fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    public ListNode merge(ListNode l1,ListNode l2)
+    {
+        ListNode dummy=new ListNode(0);
+        ListNode head=dummy;
+        while(l1!=null &&l2!=null)
+        {
+            if(l1.val<l2.val)
+            {
+                head.next=l1;
+                l1=l1.next;
+            }
+            else
+            {
+                head.next=l2;
+                l2=l2.next;
+            }
+        }
+        if(l1!=null) head.next=l1;
+        if(l2!=null) head.next=l2;
+        return dummy.next;
+    }
+}
