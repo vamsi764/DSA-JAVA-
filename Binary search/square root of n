@@ -1,0 +1,37 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+        int n=26;
+        int left=1;
+        int right=n;
+        while(left<=right)
+        {
+            int mid=(left+right)/2;
+            if((mid*mid)<=n)
+            {
+                left=mid+1;
+                
+            }
+            else
+            {
+                right=mid-1;
+            }
+        }
+        double ans=right;
+        double increment=0.1;
+        for(int i=0;i<3;i++)
+        {
+            while(ans*ans<=n)
+            {
+                ans+=increment;
+            }
+            ans-=increment;
+            increment/=10;
+        }
+        
+        System.out.printf("%.3f",ans);
+    }
+}
